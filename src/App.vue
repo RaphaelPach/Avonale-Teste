@@ -10,8 +10,10 @@ const handleSearch = (username: string) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#f5f5f5] flex flex-col p-6 gap-10">
-    <SearchBar @search="handleSearch" />
-    <Cards />
+  <div class="min-h-screen bg-[#f5f5f5]">
+    <div class="flex flex-col p-6 gap-10 max-w-7xl mx-auto">
+      <SearchBar @search="handleSearch" />
+      <Cards />
+    </div>
   </div>
 </template>
