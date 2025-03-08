@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid'; 
-import { ref } from 'vue';
-
+import { ref, watch } from 'vue';
 
 const username = ref('');
 const emit = defineEmits(['search']);
 
-const handleSearch = () => {
-  if (username.value.trim() !== '') {
-    emit('search', username.value);
-  }
-};
+// Emitir o evento de busca sempre que o valor de username mudar
+watch(username, (newValue) => {
+  emit('search', newValue);
+});
 </script>
 
 <template>
@@ -21,7 +19,6 @@ const handleSearch = () => {
       type="text"
       placeholder="Buscar repositórios"
       class="p-3 w-full outline-none"
-      @keyup.enter="handleSearch"
     />
   </div>
 </template>
