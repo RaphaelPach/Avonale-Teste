@@ -19,6 +19,7 @@ type Owner = {
   starred_url: string;
   name: string;
   html_url: string;
+  login: string;
 };
 
 const refOwner = ref<Owner>();
@@ -108,7 +109,7 @@ response();
   </div>
 
   <!-- Modal do usuário -->
-  <UserModal :isOpen="isModalOpen" :user="{ name: refOwner?.name, profileUrl: refOwner?.html_url, id: refOwner?.id, avatar_url: refOwner?.avatar_url }" @close="closeModal"  />
+  <UserModal :isOpen="isModalOpen" :user="{ name: refOwner?.name, profileUrl: refOwner?.html_url, id: refOwner?.id, avatar_url: refOwner?.avatar_url, login: refOwner?.login }" @close="closeModal"  />
 </template>
 
 <style scoped>
